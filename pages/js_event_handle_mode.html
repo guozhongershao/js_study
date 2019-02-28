@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理模型</title>
+    <style>
+        .wrapper {
+            height: 300px;
+            width: 300px;
+            background-color: red;
+        }
+
+        .content {
+            height: 200px;
+            width: 200px;
+            margin-left: 300px;
+            background-color: green;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin-left: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<!-- 冒泡 & 捕获-->
+<div class="wrapper">
+    <div class="content">
+        <div class="box"></div>
+    </div>
+</div>
+
+<script>
+    let wrapper = document.getElementsByClassName('wrapper')[0];
+    let content = document.getElementsByClassName('content')[0];
+    let box = document.getElementsByClassName('box')[0];
+
+    wrapper.addEventListener('click', function () {
+        console.log('wrapper bubble');
+    },false);
+    content.addEventListener('click', function () {
+        console.log('content bubble');
+    },false);
+    box.addEventListener('click', function () {
+        console.log('box bubble');
+    },false);
+
+    wrapper.addEventListener('click', function () {
+        console.log('wrapper');
+    },true);
+    content.addEventListener('click', function () {
+        console.log('content');
+    },true);
+    box.addEventListener('click', function () {
+        console.log('box');
+    },true);
+
+</script>
+</body>
+</html>

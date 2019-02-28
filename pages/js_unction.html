@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    // 1. 函数声明
+    // function theFirstFunction(){
+    //
+    // }
+
+    // document.write(theFirstFunction);  // 输出 > function theFirstFunction(){ } ;
+    // 弱类型语言不输出地址，直接输出函数体
+
+    // 2.函数表达式
+        //a:命名函数表达式
+    // abc是匿名的，声明完就失效了，不能通过abc()调用
+    // test.name = abc; 有函数名
+    var test = function abc(){
+
+
+    }
+    document.write(test);  // 输出 > function theFirstFunction(){ } ;
+
+        // b: 匿名函数表达式
+    // 直接等于函数体
+    // test2.name = test2, 就等于函数变量名
+    var test2 = function(){
+        console.log(test2.arguments);
+    }
+    test2(1,2,34);
+
+    var functionArgumentsLength = function(a,b,c){
+        console.log(functionArgumentsLength.length); // > 3 形参长度为3
+    }
+    functionArgumentsLength();
+
+    var argumentYinShe = function(a,b,c){
+        a = 12312
+        console.log('a : ' + a); // >12312
+        console.log('arguments[0] : ' + arguments[0]);//> 12312
+        // a == argument[0] ， 且有映射，a发生变化时，arguments[0] 也发生变化，但他们并不是同一个东西。
+        c = 323;
+        console.log('c : ' + c); // > 323
+        console.log('arguments[2] : ' + arguments[2]); // > undefiend
+        // 只有一开始c 和argument[2]建立了映射，c 和arguments[2] 才能同步发生变化。
+    }
+    argumentYinShe(21, 22);
+</script>
+</body>
+</html>

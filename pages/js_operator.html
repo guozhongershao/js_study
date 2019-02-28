@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算符</title>
+</head>
+<body>
+<script type="text/javascript"> /*type="text/javascript" 可以不写，但不能写错*/
+var b = 0 - 'a'; // not a number NaN —— NaN是数字类型
+b = 1 / 0; // Infinity
+b = -1 / 0; // -Infinity;
+b = 2 / 0; // Infinity
+b = 0 / 0 // NaN
+document.write(b);
+
+var c = 10;
+document.write('   ' + c++); // 10
+var d = 10;
+document.write('   ' + ++d); // 11
+
+var e = 10;
+var f = ++e - 1 + e++;
+document.write('e : ' + e + ' ' + 'f : ' + f);  // e : 12 f : 21
+
+var i = 1;
+var j = i++ + --i;
+document.write("<br>");
+document.write('j ' + j + ' ');  // j == 2
+document.write('i ' + i); // i == 1
+//解析：
+/*
+a++ ：存储新值，用旧值来计算
+++a :   存储新值，用新值（当前的值）来计算 -- a 也是一样
+var a = 1;
+var b = a++ + --a;
+a++ 经过运算 现在的 a新值其实是 2
+然后 经过-- a == 2 -1 的所以 a 的最终值是 1
+document.write(b)
+计算的时候  打印的是 旧值加新值  1 + 1 = 2；
+*/
+
+var i = 1;
+var j = --i + i++;
+document.write("<br>");
+document.write('j ' + j + ' ');
+document.write('i ' + i);
+
+var k = 1;
+var l = --k + ++k;
+document.write("<br>");
+document.write(l);
+
+var m = 1;
+var n = --m + --m;
+document.write("<br>");
+document.write('m ' + m + ' ');
+document.write('n ' + n);
+
+var o = 1;
+var p = --o + ++o;
+document.write("<br>");
+document.write('o ' + o + ' ');
+document.write('p ' + p);
+
+</script>
+</body>
+</html>

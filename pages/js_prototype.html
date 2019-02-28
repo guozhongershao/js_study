@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js原型</title>
+</head>
+<body>
+<script>
+
+    Person.prototype;  // Peron 对象的原型
+    Person.prototype.type; //Person 对象原型的属性
+    Person.prototype.type = 'Human' // 给对象的原型定义值
+    Person.prototype.eat = function (){ // 给对象的原型定义方法
+        console.log('Eating');
+    }
+    function Person() { // Person 对象工厂方法
+
+    }
+
+    var person1 = new Person();
+    person1; // >  Person {} —— 属性为空，因为对象的工厂方法中并没由定义属性，但实际上继承了原型中定义的属性
+    person1.type; // > Human —— type 由原型提供
+    person1.eat(); // > 'Eating' —— 由原型提供
+
+    var person2 = new Person(); // 与person1 类似，也继承了原型的属性
+
+    Person.prototype.type = 'male';
+    person1.type;
+
+
+</script>
+</body>
+</html>
