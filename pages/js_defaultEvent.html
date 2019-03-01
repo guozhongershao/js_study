@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>默认事件</title>
+</head>
+<body>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- a标签自带跳转功能，href='#' 跳转到页面顶部 -->
+<a href="#">没有跳转了</a>
+<a href="javascript:void(false)">也没有跳转了</a>
+
+<script>
+    // document.oncontextmenu = function(){
+    //     console.log('右键菜单');
+    //     return false; // 取消右键菜单事件 —— 返回false 阻止右键弹出菜单
+    // }
+
+    // document.oncontextmenu = function(e){
+    //     console.log('右键菜单');
+    //     e.preventDefault(); // W3C 标准 ie9及以下不兼容
+    // }
+
+    document.oncontextmenu = function(e){
+        console.log('右键菜单');
+        e.returnValue = false; // 兼容ie
+    }
+
+    var a = document.getElementsByTagName('a')[0];
+    a.onclick = function () {
+        console.log('click a tag');
+        // return false;
+    }
+</script>
+</body>
+</html>

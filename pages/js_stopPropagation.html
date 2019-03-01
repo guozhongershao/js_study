@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>停止事件冒泡</title>
+</head>
+<body>
+    <div style="width: 200px; height: 200px; background-color: red;"></div>
+
+    <script>
+        var div = document.getElementsByTagName('div')[0];
+        var doc = document;
+
+        addEventHandler(doc,function(){
+            console.log('你闲的啊？');
+        },'click');
+
+        addEventHandler(div,function(e){
+            this.style.backgroundColor = 'green';
+            stopBubble(e);
+        },'click');
+
+        function addEventHandler(elm, handler, eventType){
+            if(elm.addEventListener){
+                elm.addEventListener(eventType, handler, false);
+            }else if(elm.attachEvent){ // 兼容ie
+                elm.attachEvent('on' + eventType, function(e){
+                    handler.call(elm,e);//为了能使用this
+                });
+            }else{
+                elm['on' + eventType] = handler;
+            }
+        }
+
+        function stopBubble(e){
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{
+                e.cancelBubble = true;
+            }
+        }
+    </script>
+</body>
+</html>
