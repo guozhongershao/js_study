@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var div = document.getElementsByClassName('box')[0];
+        var isMoving = false;
+        div.onmouseenter = function (e) {
+            var e = e || window.event;
+            isMoving = true;
+        }
+        div.onmousemove = function (e) {
+            var e = e || window.event;
+            div.getBoundingClientRect().
+        }
+    </script>
+</body>
+</html>
